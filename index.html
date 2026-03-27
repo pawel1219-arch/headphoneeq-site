@@ -231,6 +231,70 @@
             color: #666;
         }
 
+        /* Feature Request */
+        .feature-request {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .feature-request h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .feature-request .sub {
+            color: #888;
+            margin-bottom: 24px;
+            font-size: 16px;
+        }
+
+        .feature-request form {
+            max-width: 480px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .feature-request input,
+        .feature-request textarea {
+            background: #161616;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #e5e5e5;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .feature-request input:focus,
+        .feature-request textarea:focus {
+            border-color: #60a5fa;
+        }
+
+        .feature-request textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .feature-request button {
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .feature-request button:hover {
+            opacity: 0.9;
+        }
+
         /* FAQ */
         .faq {
             padding: 60px 0;
@@ -373,6 +437,16 @@
                 <div class="count">Legacy Measurements</div>
             </div>
         </div>
+    </section>
+
+    <section class="feature-request">
+        <h2>Request a Feature</h2>
+        <p class="sub">What would you like to see in HeadphoneEQ? Let us know!</p>
+        <form action="https://formspree.io/f/xdapagad" method="POST">
+            <input type="email" name="email" placeholder="Your email (optional)">
+            <textarea name="message" placeholder="Describe the feature you'd like..." required></textarea>
+            <button type="submit">Send Request</button>
+        </form>
     </section>
 
     <section class="faq">
