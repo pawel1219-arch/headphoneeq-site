@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeadphoneEQ — Precision EQ for Your Headphones on Mac</title>
+    <meta name="description" content="Free macOS menu bar app that applies professional AutoEQ corrections to any headphones. 4,500+ presets from oratory1990, Rtings, and more. Improve your headphone sound in seconds.">
+    <meta name="keywords" content="headphone EQ, AutoEQ, Mac equalizer, parametric EQ, headphone correction, oratory1990, macOS EQ, system-wide equalizer">
+    <meta property="og:title" content="HeadphoneEQ — Precision EQ for Mac">
+    <meta property="og:description" content="System-wide headphone EQ with 4,500+ AutoEQ presets. Free for macOS.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pawel1219-arch.github.io/HeadphoneEQ">
+    <link rel="canonical" href="https://pawel1219-arch.github.io/HeadphoneEQ">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+
+        .hero-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .tagline {
+            font-size: 20px;
+            color: #999;
+            margin-bottom: 32px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255,255,255,0.15);
+        }
+
+        .cta-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .cta-sub {
+            margin-top: 12px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: #161616;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .feature-card .icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card h3 {
+            font-size: 17px;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* How it works */
+        .how-it-works {
+            padding: 60px 0;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: #000;
+        }
+
+        .step-text h3 {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .step-text p {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Presets */
+        .presets {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .presets h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .presets .sub {
+            color: #888;
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        .sources {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .source {
+            background: #161616;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 16px 24px;
+            text-align: center;
+        }
+
+        .source .name {
+            font-weight: 600;
+            font-size: 15px;
+            color: #fff;
+        }
+
+        .source .count {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 60px 0;
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 32px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #222;
+            padding: 16px 0;
+        }
+
+        .faq-item h3 {
+            font-size: 15px;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #222;
+            color: #555;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 32px; }
+            .hero .tagline { font-size: 16px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .sources { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <section class="hero">
+        <div class="hero-icon">🎧</div>
+        <h1>HeadphoneEQ</h1>
+        <p class="tagline">Precision EQ corrections for your headphones on Mac.<br>4,500+ presets. System-wide. One click.</p>
+        <a href="https://apps.apple.com/app/headphoneeq/id6746706373" class="cta-button">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download on the Mac App Store
+        </a>
+        <p class="cta-sub">Free to try. macOS 13+</p>
+    </section>
+
+    <section class="features">
+        <h2>Why HeadphoneEQ</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon">📊</div>
+                <h3>4,500+ AutoEQ Presets</h3>
+                <p>Scientifically measured corrections from oratory1990, Rtings, InnerFidelity, and more. Just find your headphones and press Start.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔊</div>
+                <h3>System-Wide EQ</h3>
+                <p>Works with all audio sources — Spotify, Apple Music, YouTube, games, calls. Uses macOS System Audio Capture or BlackHole.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🎛️</div>
+                <h3>10-Band Custom EQ</h3>
+                <p>Fine-tune your sound with a parametric equalizer. 64-bit precision biquad filters for transparent, artifact-free processing.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3>Menu Bar App</h3>
+                <p>Lives in your menu bar. Lightweight, always accessible, no dock icon. Start EQ in two clicks.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-text">
+                    <h3>Select your output device</h3>
+                    <p>Choose your headphones or speakers from the output picker.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-text">
+                    <h3>Find your headphone preset</h3>
+                    <p>Search 4,500+ measured EQ profiles. Filter by source — oratory1990, Rtings, and more.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-text">
+                    <h3>Press Start</h3>
+                    <p>EQ is applied system-wide in real time. All your audio is corrected instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="presets">
+        <h2>Trusted Sources</h2>
+        <p class="sub">EQ profiles from the most respected headphone measurement databases</p>
+        <div class="sources">
+            <div class="source">
+                <div class="name">oratory1990</div>
+                <div class="count">Parametric EQ</div>
+            </div>
+            <div class="source">
+                <div class="name">Rtings</div>
+                <div class="count">Frequency Response</div>
+            </div>
+            <div class="source">
+                <div class="name">InnerFidelity</div>
+                <div class="count">Frequency Response</div>
+            </div>
+            <div class="source">
+                <div class="name">Headphone.com</div>
+                <div class="count">Legacy Measurements</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <h2>FAQ</h2>
+        <div class="faq-item">
+            <h3>Is it free?</h3>
+            <p>HeadphoneEQ is free to download. You can try any preset for 30 seconds. A one-time Pro upgrade ($4.99) unlocks unlimited use, custom EQ, favorites, and auto-gain modes.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does it work with Spotify / Apple Music / YouTube?</h3>
+            <p>Yes. HeadphoneEQ captures system audio, so it works with every app on your Mac.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What macOS versions are supported?</h3>
+            <p>macOS 13 (Ventura) and later. System Audio Capture (recommended) requires macOS 14.2+. Older versions can use BlackHole virtual audio driver.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does it add latency?</h3>
+            <p>Minimal. Processing happens in real time with optimized 64-bit biquad filters. Typical latency is under 10ms.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What is AutoEQ?</h3>
+            <p>AutoEQ is an open-source project that generates headphone equalization corrections based on scientific measurements. HeadphoneEQ uses these corrections to make your headphones sound closer to the Harman target curve — the frequency response preferred by most listeners.</p>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 HeadphoneEQ. <a href="https://github.com/pawel1219-arch/HeadphoneEQ">GitHub</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
